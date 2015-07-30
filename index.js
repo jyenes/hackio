@@ -37,8 +37,8 @@ module.exports = service;
 function service(options) {
   var plugins = [logRegister, tvRegister];
   var server = new Hapi.Server();
-  server.connection(options.server);
-  
+  server.connection(options);
+
   server.route(routes);
   server.register(plugins, function(err) {
     if (err) {

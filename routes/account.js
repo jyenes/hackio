@@ -8,11 +8,11 @@ Account.get = {
   method : 'GET',
   path   : '/account/{userID}',
   config: {
-  	handler: account.get,
-  	validate : {
-  		params : {
-  			userID: accountValidation.id
-  		}
-  	}
+    handler: account.get,
+    validate : {
+      params : {
+        userID: accountValidation.id
+      }
+    }
   }
 };

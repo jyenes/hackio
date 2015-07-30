@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
-var pkg         = require('../package.json');
-var program     = require('commander');
+var pkg     = require('../package.json');
+var program = require('commander');
 
 //
 // MAIN PROGRAM
@@ -66,11 +66,11 @@ function filterHapiOptions(options) {
 if (!process.argv.slice(2).length) {
   program.help();
 } else {
-  if (!program.port || !program.capi) {
+  if (!program.port) {
     console.error('\n  \x1B[1;33mWarning:\x1B[0m options' +
       ' \x1B[1;32m"-p" are required, use --help for info');
   } else {
-    process.env.CAPI = program.capi || 'http://integration.capi.thomascook.io';
+    process.env.CAPI = program.capi || 'http://134.213.105.171:8000/account';
     require('../')(filterHapiOptions(program.options));
   }
 }
