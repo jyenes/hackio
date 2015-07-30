@@ -3,6 +3,11 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
+  "directories": [
+    "test",
+    "routes",
+    "controllers"
+  ],
   "scripts": {
     "test": "",
     "jshint": "jshint -c .jshintrc --exclude-path .gitignore .",
