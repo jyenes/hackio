@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
+  "bin": "./bin/server", 
   "directories": [
     "test",
     "routes",
@@ -26,7 +27,8 @@
   "homepage": "https://github.com/jyenes/hackio",
   "dependencies": {
     "hapi": "^8.8.1",
-    "tc-customer-api-client": "0.1.0-0029-8cb67349"
+    "tc-customer-api-client": "0.1.0-0029-8cb67349",
+    "tv": "^4.1.1"
   },
   "devDependencies": {
     "code": "^1.5.0",
