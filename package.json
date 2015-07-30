@@ -31,7 +31,8 @@
     "tv": "^4.1.1",
     "commander": "^2.8.1",
     "good": "^6.3.0",
-    "good-console": "^5.0.2"
+    "good-console": "^5.0.2",
+    "joi": "^6.6.1"
   },
   "devDependencies": {
     "code": "^1.5.0",
