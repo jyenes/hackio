@@ -13,7 +13,9 @@ program
   .description(pkg.description)
   .option('-p, --port <port>',
     'the TCP port the connection will listen to',
-    parseInt);
+    parseInt)
+  .option('-c, --capi <capi>',
+    'the capi client url');
 
 program.on('--help', function() {
   console.log('  Examples:');
@@ -64,10 +66,11 @@ function filterHapiOptions(options) {
 if (!process.argv.slice(2).length) {
   program.help();
 } else {
-  if (!program.port) {
+  if (!program.port || !program.capi) {
     console.error('\n  \x1B[1;33mWarning:\x1B[0m options' +
       ' \x1B[1;32m"-p" are required, use --help for info');
-  } else {   
+  } else {
+    process.env.CAPI = program.capi || 'http://integration.capi.thomascook.io';
     require('../')(filterHapiOptions(program.options));
   }
 }

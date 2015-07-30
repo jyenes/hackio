@@ -2,7 +2,7 @@
 
 var EE      = require('events').EventEmitter;
 var Hapi    = require('hapi');
-
+var routes  = require('./routes');
 //
 // Log plugin
 //
@@ -36,10 +36,9 @@ module.exports = service;
 
 function service(options) {
   var plugins = [logRegister, tvRegister];
-
   var server = new Hapi.Server();
-  server.connection(options);
-
+  server.connection(options.server);
+  server.route(routes);
   server.register(plugins, function(err) {
     if (err) {
       throw err;
