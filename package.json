@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
-  "bin": "./bin/server", 
+  "bin": "./bin/server",
   "directories": [
     "test",
     "routes",
@@ -28,7 +28,10 @@
   "dependencies": {
     "hapi": "^8.8.1",
     "tc-customer-api-client": "0.1.0-0029-8cb67349",
-    "tv": "^4.1.1"
+    "tv": "^4.1.1",
+    "commander": "^2.8.1",
+    "good": "^6.3.0",
+    "good-console": "^5.0.2"
   },
   "devDependencies": {
     "code": "^1.5.0",

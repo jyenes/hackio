@@ -2,7 +2,6 @@
 
 var EE      = require('events').EventEmitter;
 var Hapi    = require('hapi');
-var debug   = require('./lib/debug')('service');
 
 //
 // Log plugin
@@ -14,13 +13,13 @@ var logRegister = {
     opsInterval: 30000,
     reporters: [{
       reporter: require('good-console'),
-      args:[{
+      events:{
         log     : '*',
         response: '*',
         request : '*',
         error   : '*',
         ops     : '*'
-      }]
+      }
     }]
   }
 };
@@ -36,7 +35,8 @@ var tvRegister = {
 module.exports = service;
 
 function service(options) {
-  var plugins = [];
+  debugger
+  var plugins = [logRegister, tvRegister];
 
   var server = new Hapi.Server();
   server.connection(options);

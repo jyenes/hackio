@@ -1,1 +1,74 @@
-#!/user/bin/env node
+#!/usr/bin/env node
+'use strict';
+
+var pkg         = require('../package.json');
+var program     = require('commander');
+
+//
+// MAIN PROGRAM
+//
+
+program
+  .version(pkg.version)
+  .description(pkg.description)
+  .option('-p, --port <port>',
+    'the TCP port the connection will listen to',
+    parseInt);
+
+program.on('--help', function() {
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ hackio');
+  console.log('');
+});
+
+program.parse(process.argv);
+
+
+function filterHapiOptions(options) {
+  var res = {};
+
+  options.map(function(opt) {
+    return opt.long.replace(/^--/, '');
+  })
+  .filter(function(opt) {
+    var serverOpts = [
+      'port',
+      'host',
+      'address',
+      'uri',
+      'labels',
+      'log',
+      'console'
+    ];
+
+    if (serverOpts.indexOf(opt) > -1) {
+      return opt;
+    }
+  })
+  .forEach(function(param) {
+    if (program[param]) {
+      res[param] = program[param];
+    }
+  });
+
+  return res;
+}
+
+//
+// 1º - no args then shows the help
+// 2º - validated if the args port & file are being passed
+// 3º - start the server
+//
+
+if (!process.argv.slice(2).length) {
+  program.help();
+} else {
+  if (!program.port) {
+    console.error('\n  \x1B[1;33mWarning:\x1B[0m options' +
+      ' \x1B[1;32m"-p" are required, use --help for info');
+  } else {   
+  	debugger
+    require('../')(filterHapiOptions(program.options));
+  }
+}
