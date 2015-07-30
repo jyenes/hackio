@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/jyenes/hackio/issues"
   },
-  "homepage": "https://github.com/jyenes/hackio"
+  "homepage": "https://github.com/jyenes/hackio",
+  "dependencies": {
+    "hapi": "^8.8.1",
+    "tc-customer-api-client": "0.1.0-0029-8cb67349"
+  }
 }
