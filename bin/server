@@ -68,7 +68,6 @@ if (!process.argv.slice(2).length) {
     console.error('\n  \x1B[1;33mWarning:\x1B[0m options' +
       ' \x1B[1;32m"-p" are required, use --help for info');
   } else {   
-  	debugger
     require('../')(filterHapiOptions(program.options));
   }
 }

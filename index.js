@@ -35,7 +35,6 @@ var tvRegister = {
 module.exports = service;
 
 function service(options) {
-  debugger
   var plugins = [logRegister, tvRegister];
 
   var server = new Hapi.Server();
